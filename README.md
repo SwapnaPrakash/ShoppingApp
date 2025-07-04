@@ -25,5 +25,6 @@
 
 <p align="center">
 <img alt="login_screen" 
-src="https://github.com/SwapnaPrakash/ShoppingApp/blob/master/LoginScreen.png"> 
+src="https://github.com/SwapnaPrakash/ShoppingApp/blob/master/LoginScreen.png"
+width="400px"> 
 </p>

@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.swapna.shoppingapp.R
 import com.swapna.shoppingapp.authentication.sign_in.CustomTextField
-import com.swapna.shoppingapp.utils.VerticalSpacer
+import com.swapna.shoppingapp.ui.VerticalSpacer
 
 @Composable
 fun CompanyInfo(modifier: Modifier = Modifier) {

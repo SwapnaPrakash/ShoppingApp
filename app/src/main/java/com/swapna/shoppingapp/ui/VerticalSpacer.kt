@@ -1,4 +1,4 @@
-package com.swapna.shoppingapp.utils
+package com.swapna.shoppingapp.ui
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
