@@ -15,7 +15,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.swapna.shoppingapp.R
 import com.swapna.shoppingapp.authentication.sign_up.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,7 +28,7 @@ fun HomeScreen(
     Scaffold(
         topBar = {
             TopAppBar(title = {
-                Text(text = "Home")
+                Text(text = stringResource(R.string.home))
             }
             )
         }
@@ -38,7 +40,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Home")
+            Text(text = stringResource(R.string.home))
         }
     }
 }

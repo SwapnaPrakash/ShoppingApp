@@ -154,7 +154,7 @@ fun CustomTextField(modifier: Modifier = Modifier,
                         ){
                             Icon(
                                 painter = painterResource(passwordIconResource),
-                                contentDescription = "Show Password"
+                                contentDescription =  stringResource(R.string.show_password)
                             )
                         }
                     }else{
