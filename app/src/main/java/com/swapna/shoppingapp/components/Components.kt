@@ -11,9 +11,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.swapna.shoppingapp.R
 import com.swapna.shoppingapp.authentication.sign_in.CustomTextField
-import com.swapna.shoppingapp.utils.VerticalSpacer
+import com.swapna.shoppingapp.ui.VerticalSpacer
 
 @Composable
 fun CompanyInfo(modifier: Modifier = Modifier) {
@@ -48,7 +50,7 @@ fun EmailAndPasswordContent(
             modifier = modifier.fillMaxWidth(),
             value = email,
             onValueChange = onEmailChange,
-            placeholder = "Enter your email",
+            placeholder = stringResource(R.string.enter_your_email),
             onClear = onEmailClear
         )
 
@@ -58,7 +60,7 @@ fun EmailAndPasswordContent(
             modifier = modifier.fillMaxWidth(),
             value = password,
             onValueChange = onPasswordChange,
-            placeholder = "Enter the password",
+            placeholder = stringResource(R.string.enter_the_password),
             isPasswordField = true,
             onClear = onPasswordClear
         )

@@ -33,6 +33,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.swapna.shoppingapp.components.CompanyInfo
 import com.swapna.shoppingapp.components.EmailAndPasswordContent
@@ -53,7 +54,7 @@ fun SignInScreen(
     Scaffold(
         topBar = {
             TopAppBar(title = {
-                Text(text = "Sign In")
+                Text(text = stringResource(R.string.sign_in))
             }
             )
         }
@@ -76,7 +77,7 @@ fun SignInScreen(
                 onEmailClear = {email = ""},
                 onPasswordClear = {password = ""},
                 actionButtonContent = {
-                    Text(text = "Sign In")
+                    Text(text = stringResource(R.string.sign_in))
                 },
                 onActionButtonClick = {
                     authViewModel.signIn(email, password)
@@ -104,7 +105,7 @@ fun SignUpBox(modifier: Modifier = Modifier,
             modifier = Modifier.clickable{
                 onSignUpClick()
             },
-            text = "Sign up instead?",
+            text = stringResource(R.string.sign_up_instead),
             style = MaterialTheme.typography.titleMedium,
             textDecoration = TextDecoration.Underline,
             color = Color.Blue
@@ -153,14 +154,14 @@ fun CustomTextField(modifier: Modifier = Modifier,
                         ){
                             Icon(
                                 painter = painterResource(passwordIconResource),
-                                contentDescription = "Show Password"
+                                contentDescription = stringResource(R.string.show_password)
                             )
                         }
                     }else{
                         IconButton(onClick = onClear){
                             Icon(
                                 imageVector = Icons.Default.Clear,
-                                contentDescription = "Clear"
+                                contentDescription = stringResource(R.string.clear)
                             )
                         }
                     }

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ShoppingApp</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_instead">Sign up instead?</string>
+    <string name="show_password">Show Password</string>
+    <string name="clear">Clear</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_the_password">Enter the password</string>
+    <string name="home">Home</string>
 </resources>

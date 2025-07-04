@@ -23,12 +23,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.swapna.shoppingapp.R
 import com.swapna.shoppingapp.base.AuthState
 import com.swapna.shoppingapp.components.CompanyInfo
 import com.swapna.shoppingapp.components.EmailAndPasswordContent
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,7 +52,7 @@ fun SignUpScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Sign Up") },
+                title = { Text(text = stringResource(R.string.sign_up)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -91,7 +92,7 @@ fun SignUpScreen(
                             modifier = Modifier.size(24.dp)
                         )
                     }else{
-                        Text(text = "Sign Up")
+                        Text(text = stringResource(R.string.sign_up))
                     }
                 },
                 enableActionButton = authState !is AuthState.Loading
