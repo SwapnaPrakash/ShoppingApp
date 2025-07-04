@@ -23,4 +23,7 @@
 
 
 
-![Screenshot 2025-07-04 220555.png](../../AppImages/Screenshot%202025-07-04%20220555.png)
+<p align="center">
+<img alt="login_screen" 
+src="https://github.com/SwapnaPrakash/ShoppingApp/blob/master/LoginScreen.png"> 
+</p>
