@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
 
     implementation(libs.hilt.android)
+    implementation(libs.androidx.datastore.core.android)
     ksp(libs.hilt.android.compiler)
 
     implementation(libs.accompanist.permissions)
@@ -77,4 +78,6 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth)
+
+    implementation(libs.androidx.datastore.preferences)
 }

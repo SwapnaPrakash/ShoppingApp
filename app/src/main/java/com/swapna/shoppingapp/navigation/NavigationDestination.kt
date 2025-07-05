@@ -25,4 +25,11 @@ sealed interface NavigationDestination {
             get() = "home"
     }
 
+    data object Splash : NavigationDestination{
+        override val title: String
+            get() = "Splash"
+        override val route: String
+            get() = "splash"
+    }
+
 }

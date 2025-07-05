@@ -7,5 +7,8 @@ interface AuthRepository {
         onSignUpSuccess: () -> Unit,
         onSignUpFailure: (Exception) -> Unit
     )
-    fun signIn(email: String, password: String)
+    fun signIn(email: String, password: String,
+               onSignUpSuccess: () -> Unit,
+               onSignUpFailure: (Exception) -> Unit)
+    fun signOut()
 }

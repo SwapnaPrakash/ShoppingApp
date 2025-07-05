@@ -24,7 +24,24 @@ class AuthRepositoryImpl @Inject constructor(
             }
     }
 
-    override fun signIn(email: String, password: String) {
+    override fun signIn(
+        email: String,
+        password: String,
+        onSignUpSuccess: () -> Unit,
+        onSignUpFailure: (Exception) -> Unit
+    ) {
         auth.signInWithEmailAndPassword(email,password)
+            .addOnSuccessListener { authResult ->
+                Log.d("TAG", "authResult:$auth")
+                onSignUpSuccess()
+            }
+            .addOnFailureListener {exception->
+                onSignUpFailure(exception)
+            }
     }
+
+    override fun signOut() {
+        auth.signOut()
+    }
+
 }

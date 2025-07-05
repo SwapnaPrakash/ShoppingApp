@@ -8,9 +8,11 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -19,6 +21,7 @@ import androidx.compose.material3.OutlinedTextField import androidx.compose.mate
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.runtime.getValue
@@ -39,6 +42,7 @@ import com.swapna.shoppingapp.components.CompanyInfo
 import com.swapna.shoppingapp.components.EmailAndPasswordContent
 import com.swapna.shoppingapp.R
 import com.swapna.shoppingapp.authentication.sign_up.AuthViewModel
+import com.swapna.shoppingapp.base.AuthState
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,6 +54,7 @@ fun SignInScreen(
 
     var email by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
+    val authState by authViewModel.authState.collectAsState()
 
     Scaffold(
         topBar = {
@@ -76,14 +81,20 @@ fun SignInScreen(
                 onPasswordChange = {password = it},
                 onEmailClear = {email = ""},
                 onPasswordClear = {password = ""},
-                actionButtonContent = {
-                    Text(text = stringResource(R.string.sign_in))
-                },
                 onActionButtonClick = {
                     authViewModel.signIn(email, password)
-                }
+                },
+                actionButtonContent = {
+                    if(authState is AuthState.Loading){
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }else{
+                        Text(text = stringResource(R.string.sign_in))
+                    }
+                },
+                enableActionButton = authState !is AuthState.Loading
             )
-
             SignUpBox(
                 modifier = Modifier.weight(1f),
                 onSignUpClick = onSignUpClick

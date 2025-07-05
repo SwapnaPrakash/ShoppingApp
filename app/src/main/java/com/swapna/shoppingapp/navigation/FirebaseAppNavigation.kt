@@ -1,5 +1,6 @@
 package com.swapna.shoppingapp.navigation
 
+import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -10,16 +11,19 @@ import com.swapna.shoppingapp.authentication.sign_up.SignUpScreen
 import com.swapna.shoppingapp.components.slideIntoContainerAnimation
 import com.swapna.shoppingapp.components.slideOutOfContainerAnimation
 import com.swapna.shoppingapp.home.HomeScreen
+import com.swapna.shoppingapp.splash.SplashScreen
+import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection
 
 @Composable
-fun FirebaseAppNavigation(modifier: Modifier = Modifier) {
+fun FirebaseAppNavigation(modifier: Modifier = Modifier,
+                          startDestination: NavigationDestination) {
 
     val navController = rememberNavController()
 
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = NavigationDestination.SignIn.route
+        startDestination = startDestination.route
     ) {
 
         composable(
@@ -37,11 +41,15 @@ fun FirebaseAppNavigation(modifier: Modifier = Modifier) {
         }
 
         composable(route = NavigationDestination.SignUp.route ,
-        enterTransition = {
-            slideIntoContainerAnimation()
-        }, exitTransition = {
-        slideOutOfContainerAnimation()
-    }) {
+            enterTransition = {
+                slideIntoContainerAnimation(
+                    towards = SlideDirection.Left
+                )
+            }, exitTransition = {
+                slideOutOfContainerAnimation(
+                    towards = SlideDirection.Right
+                )
+            }) {
             SignUpScreen(
                 onBack = {
                     navController.popBackStack()
@@ -55,14 +63,22 @@ fun FirebaseAppNavigation(modifier: Modifier = Modifier) {
         composable(
             route = NavigationDestination.Home.route,
             enterTransition = {
-                slideIntoContainerAnimation()
+                slideIntoContainerAnimation(
+                    towards = SlideDirection.Left
+                )
             }, exitTransition = {
-                slideOutOfContainerAnimation()
+                slideOutOfContainerAnimation(
+                    towards = SlideDirection.Right
+                )
             }) {
-            HomeScreen(
-
-            )
+            HomeScreen()
         }
+
+        composable(
+            route = NavigationDestination.Splash.route,) {
+            SplashScreen()
+        }
+
 
     }
 
